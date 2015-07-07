@@ -1,10 +1,19 @@
 <html>
+<%
+  def link_to(name, website)
+    "<a href=#{website} target='_blank'>#{name}</a>"
+  end
+%>
+
   <body>
     <h1>You're using a layout</h1>
     <p>
       <h3> I'm a header</h3>
       <p>Put things in the header</p>
-      <a href='me.html'>Me</a>
+
+      <% {'me' => 'me.html', 'yahoo' => 'https://yahoo.com'}.each do |name, website| %>
+      <%= link_to(name, website) %>
+      <% end %>
 
     </p>
     <hr />
